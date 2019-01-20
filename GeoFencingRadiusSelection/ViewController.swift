@@ -64,19 +64,10 @@ class ViewController: UIViewController {
         radiusCircle.center = mapView.center
     }
     
-    func drawRadiusCircle() {
-        
+    func setMapRegion() {
         let distance: CLLocationDistance = abs(currentRadius) * 5
-        
-        mapCircles.forEach { circle in
-            mapView.removeOverlay(circle)
-        }
-        mapCircles.removeAll()
         let region = MKCoordinateRegion(center: currentCoordinate!, latitudinalMeters: distance, longitudinalMeters: distance)
         mapView.setRegion(region, animated: false)
-        circle = MKCircle(center: currentCoordinate!, radius: currentRadius)
-        mapCircles.append(circle)
-        mapView.addOverlay(circle)
     }
 }
 
@@ -98,6 +89,7 @@ extension ViewController: UIGestureRecognizerDelegate {
             if let viewTouched = self.contentView.hitTest(touch, with: event), viewTouched == touchView {
                 
                 let currentPoint = touch
+                radiusCircle.isHidden = false
                 
                 let deltaRatio = abs((currentPoint.x - previousTouchPoint.x) / (contentView.frame.width / 2))
                 if currentPoint.x - mapView.center.x < lastXDiff {
@@ -117,20 +109,23 @@ extension ViewController: UIGestureRecognizerDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        drawRadiusCircle()
+        setMapRegion()
+        recenterToSelectedLocation()
+        //radiusCircle.isHidden = true
     }
 }
 
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         currentCoordinate = mapView.centerCoordinate
-        drawRadiusCircle()
+        setMapRegion()
         
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay.isKind(of: MKCircle.self) {
             let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.strokeColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
             circleRenderer.lineWidth = 0.5
             return circleRenderer
         }
@@ -150,7 +145,7 @@ extension ViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             locationManager.stopUpdatingLocation()
             currentCoordinate = location.coordinate
-            drawRadiusCircle()
+            setMapRegion()
             recenterToSelectedLocation()
         }
     }
