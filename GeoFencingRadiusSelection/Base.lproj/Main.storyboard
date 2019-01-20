@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GeoFencingRadiusSelection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-Ec-ozS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-Ya-DW9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="6hO-oc-eqN"/>
+                                        </connections>
+                                    </mapView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="sb9-Zi-HK7">
+                                        <rect key="frame" x="163.66666666666666" y="341" width="48" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="Opx-Xx-DG4"/>
+                                            <constraint firstAttribute="height" constant="96" id="hdd-ZZ-kgg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radius-circle" translatesAutoresizingMaskIntoConstraints="NO" id="MYT-hj-hZh">
+                                        <rect key="frame" x="135.66666666666666" y="337" width="104" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="3DM-f5-Ks3"/>
+                                            <constraint firstAttribute="height" constant="104" id="WUy-J8-NJ6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGq-ST-jBR">
+                                        <rect key="frame" x="20" y="200" width="335" height="378"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="sb9-Zi-HK7" firstAttribute="centerY" secondItem="Mgc-Ec-ozS" secondAttribute="centerY" id="3q9-yO-hDd"/>
+                                    <constraint firstAttribute="trailing" secondItem="sa9-Ya-DW9" secondAttribute="trailing" id="Aw4-5u-eDp"/>
+                                    <constraint firstItem="TGq-ST-jBR" firstAttribute="centerY" secondItem="Mgc-Ec-ozS" secondAttribute="centerY" id="Ge4-Fg-N6v"/>
+                                    <constraint firstItem="TGq-ST-jBR" firstAttribute="top" secondItem="Mgc-Ec-ozS" secondAttribute="top" constant="200" id="QeH-st-bcc"/>
+                                    <constraint firstItem="TGq-ST-jBR" firstAttribute="centerX" secondItem="Mgc-Ec-ozS" secondAttribute="centerX" id="UW8-cJ-Wra"/>
+                                    <constraint firstItem="TGq-ST-jBR" firstAttribute="leading" secondItem="Mgc-Ec-ozS" secondAttribute="leading" constant="20" id="aCH-oX-PiS"/>
+                                    <constraint firstItem="MYT-hj-hZh" firstAttribute="centerX" secondItem="Mgc-Ec-ozS" secondAttribute="centerX" id="cZJ-h0-oxT"/>
+                                    <constraint firstItem="MYT-hj-hZh" firstAttribute="centerY" secondItem="Mgc-Ec-ozS" secondAttribute="centerY" id="eBI-PQ-dFA"/>
+                                    <constraint firstItem="sa9-Ya-DW9" firstAttribute="leading" secondItem="Mgc-Ec-ozS" secondAttribute="leading" id="fJ6-1F-heR"/>
+                                    <constraint firstAttribute="bottom" secondItem="sa9-Ya-DW9" secondAttribute="bottom" id="gvd-ok-tf0"/>
+                                    <constraint firstAttribute="bottom" secondItem="TGq-ST-jBR" secondAttribute="bottom" constant="200" id="oy8-1K-dHv"/>
+                                    <constraint firstItem="sa9-Ya-DW9" firstAttribute="top" secondItem="Mgc-Ec-ozS" secondAttribute="top" id="wrI-ey-B7Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="TGq-ST-jBR" secondAttribute="trailing" constant="20" id="yAb-YX-WJh"/>
+                                    <constraint firstItem="sb9-Zi-HK7" firstAttribute="centerX" secondItem="Mgc-Ec-ozS" secondAttribute="centerX" id="ytJ-Kp-6J9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mgc-Ec-ozS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nhz-2i-bst"/>
+                            <constraint firstItem="Mgc-Ec-ozS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="X5q-2E-A94"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mgc-Ec-ozS" secondAttribute="bottom" id="crx-rT-C9A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mgc-Ec-ozS" secondAttribute="trailing" id="dSx-GP-VSh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="Mgc-Ec-ozS" id="Lv9-aB-FyB"/>
+                        <outlet property="mapPin" destination="sb9-Zi-HK7" id="5de-Kp-G5m"/>
+                        <outlet property="mapView" destination="sa9-Ya-DW9" id="HTp-Fy-5cd"/>
+                        <outlet property="radiusCircle" destination="MYT-hj-hZh" id="txN-Y2-2dn"/>
+                        <outlet property="touchView" destination="TGq-ST-jBR" id="ofV-Kv-pAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pin" width="48" height="96"/>
+        <image name="radius-circle" width="104" height="104"/>
+    </resources>
+</document>
